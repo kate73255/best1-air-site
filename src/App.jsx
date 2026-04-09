@@ -1,4 +1,7 @@
 import { useMemo, useState } from "react";
+import logo from "./assets/Best 1 Air Conditioning logo.png";
+import heroHvac from "./assets/hero-hvac.png";
+import icons from "./assets/Cooling and heating services interface.png";
 
 export default function App() {
   const [language, setLanguage] = useState("ko");
@@ -44,9 +47,10 @@ export default function App() {
             desc: "업소용 냉동·냉장 및 관련 장비 서비스",
           },
         ],
-        aboutTitle: "회사 소개",
+        abouttitlesm: "회사 소개",
+        aboutTitle: "베스트 1 에어",
         aboutBody:
-          "베스트1 에어컨은 텍사스 지역에서 상업용 및 가정용 HVAC 및 냉동/냉장 관련 서비스를 제공합니다. 고객이 믿고 맡길 수 있도록 정확한 진단, 책임감 있는 작업, 정직한 가격을 중요하게 생각합니다.",
+          "베스트1 에어컨은 텍사스 지역에서 상업용 및 가정용 HVAC 및 \n냉동/냉장 관련 서비스를 제공합니다. \n고객이 믿고 맡길 수 있도록 정확한 진단, 책임감 있는 작업, \n정직한 가격을 중요하게 생각합니다.",
         aboutPlaceholder:
           "추가 예정: 경력 연수, 운영 지역, 긴급 서비스 여부, 특별 강점 등",
         licenseTitle: "라이센스 및 비즈니스 정보",
@@ -62,7 +66,7 @@ export default function App() {
         emailLabel: "이메일",
         phoneLabel: "전화번호",
         serviceAreaTitle: "서비스 지역",
-        serviceAreaBody: "추가 예정: Dallas, Fort Worth, Euless, Irving, Carrollton, Plano 등",
+        serviceAreaBody: "Dallas, Fort Worth, North Texas 등등",
         footer: "Best 1 Air Conditioning & Refrigeration",
       },
       en: {
@@ -104,9 +108,10 @@ export default function App() {
             desc: "Service for commercial refrigeration and related equipment",
           },
         ],
-        aboutTitle: "About",
+        abouttitlesm: "About",
+        aboutTitle: "Best 1 Air",
         aboutBody:
-          "Best 1 Air provides residential and commercial HVAC and refrigeration services in Texas. We focus on accurate diagnostics, dependable workmanship, and fair pricing that customers can trust.",
+          "Best 1 Air provides residential and commercial HVAC and refrigeration services in Texas.\nWe focus on accurate diagnostics, dependable workmanship, and fair pricing that customers can trust.",
         aboutPlaceholder:
           "Coming soon: years of experience, service areas, emergency service availability, and key strengths",
         licenseTitle: "License & Business Info",
@@ -122,7 +127,7 @@ export default function App() {
         emailLabel: "Email",
         phoneLabel: "Phone",
         serviceAreaTitle: "Service Area",
-        serviceAreaBody: "Coming soon: Dallas, Fort Worth, Euless, Irving, Carrollton, Plano, and nearby cities",
+        serviceAreaBody: "Dallas, Fort Worth, Euless, Irving, Carrollton, Plano, and nearby cities",
         footer: "Best 1 Air Conditioning & Refrigeration",
       },
     }),
@@ -132,31 +137,43 @@ export default function App() {
   const t = content[language];
 
   return (
-    <div className="min-h-screen bg-blue-500 text-white text-5xl">
-      <header className="sticky top-0 z-50 border-b border-sky-100 bg-white/90 backdrop-blur">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-          <div>
-            <p className="text-xl font-bold tracking-tight text-slate-900">{t.brand}</p>
-            <p className="text-sm text-slate-500">Best 1 Air Conditioning & Refrigeration</p>
+    <div className="min-h-screen bg-[#f3f7ff] text-slate-900">
+      <header className="sticky top-0 z-50 border-b border-[#d7e5ff] bg-[#edf4ff]/95 backdrop-blur">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
+          <div className="flex items-center">
+            <img src={logo} alt="logo" className="h-16 w-auto object-contain" />
           </div>
 
           <div className="hidden items-center gap-6 md:flex">
             <nav className="flex items-center gap-6 text-sm font-medium text-slate-600">
-              <a href="#services" className="transition hover:text-blue-600">{t.nav.services}</a>
-              <a href="#about" className="transition hover:text-blue-600">{t.nav.about}</a>
-              <a href="#license" className="transition hover:text-blue-600">{t.nav.license}</a>
-              <a href="#contact" className="transition hover:text-blue-600">{t.nav.contact}</a>
+              <a href="#services" className="transition hover:text-[#2e67db]">
+                {t.nav.services}
+              </a>
+              <a href="#about" className="transition hover:text-[#2e67db]">
+                {t.nav.about}
+              </a>
+              <a href="#license" className="transition hover:text-[#2e67db]">
+                {t.nav.license}
+              </a>
+              <a href="#contact" className="transition hover:text-[#2e67db]">
+                {t.nav.contact}
+              </a>
             </nav>
+
             <div className="flex rounded-full border border-sky-200 bg-sky-50 p-1 text-sm">
               <button
                 onClick={() => setLanguage("ko")}
-                className={`rounded-full px-3 py-1.5 ${language === "ko" ? "bg-blue-600 text-white" : "text-slate-600"}`}
+                className={`rounded-full px-3 py-1.5 ${
+                  language === "ko" ? "bg-blue-600 text-white" : "text-slate-600"
+                }`}
               >
                 한국어
               </button>
               <button
                 onClick={() => setLanguage("en")}
-                className={`rounded-full px-3 py-1.5 ${language === "en" ? "bg-blue-600 text-white" : "text-slate-600"}`}
+                className={`rounded-full px-3 py-1.5 ${
+                  language === "en" ? "bg-blue-600 text-white" : "text-slate-600"
+                }`}
               >
                 ENG
               </button>
@@ -165,73 +182,74 @@ export default function App() {
         </div>
       </header>
 
-      <section className="mx-auto max-w-7xl px-6 py-16 md:py-24">
-        <div className="grid items-center gap-10 lg:grid-cols-[1.2fr_0.8fr]">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-blue-600">{t.topLine}</p>
-            <h1 className="mt-5 max-w-4xl text-4xl font-bold tracking-tight text-slate-900 md:text-6xl md:leading-[1.05]">
+      <section className="overflow-hidden bg-[radial-gradient(circle_at_65%_40%,#dcecff_0%,#8eb8ff_28%,#5f93ee_55%,#4b84e8_78%,#4b84e8_100%)]">
+        <div className="mx-auto grid min-h-[620px] max-w-7xl items-center gap-10 px-6 py-16 lg:grid-cols-[1fr_1.05fr] lg:py-20">
+          <div className="z-10">
+            <p className="text-sm font-medium tracking-[0.16em] text-[#355c9a]">
+              {t.topLine}
+            </p>
+
+            <h1 className="mt-8 max-w-3xl text-4xl font-bold tracking-tight text-[#0d2e66] md:text-5xl">
               {t.heroTitle}
             </h1>
-            <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-600">{t.heroDesc}</p>
 
-            <div className="mt-8 flex flex-wrap gap-4">
+            <p className="mt-4 max-w-2xl text-[17px] leading-8 text-[#264f8d]">
+              {t.heroDesc}
+            </p>
+
+            <div className="mt-10 flex flex-wrap gap-4">
               <a
                 href="tel:4694323839"
-                className="rounded-2xl bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-200 transition hover:-translate-y-0.5 hover:bg-blue-700"
+                className="rounded-2xl bg-gradient-to-r from-[#1e56d9] to-[#4d83f0] px-7 py-4 text-base font-semibold text-white shadow-[0_12px_28px_rgba(37,99,235,0.35)] transition hover:scale-[1.02]"
               >
                 {t.callNow} · 469-432-3839
               </a>
               <a
                 href="#contact"
-                className="rounded-2xl border border-sky-200 bg-white px-6 py-3 text-sm font-semibold text-slate-700 transition hover:bg-sky-50"
+                className="rounded-2xl bg-white px-7 py-4 text-base font-semibold text-slate-700 shadow-md transition hover:bg-slate-50"
               >
                 {t.getQuote}
               </a>
             </div>
 
-            <div className="mt-8 grid gap-3 md:grid-cols-3">
+            <div className="mt-8 grid max-w-3xl gap-4 md:grid-cols-3">
               {t.trustItems.map((item) => (
-                <div key={item} className="rounded-2xl border border-sky-100 bg-white/80 p-4 shadow-sm">
-                  <p className="text-sm font-medium text-slate-700">{item}</p>
+                <div
+                  key={item}
+                  className="rounded-2xl bg-[#dbe6f7] px-5 py-5 text-sm font-medium text-[#42526b] shadow-sm"
+                >
+                  {item}
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="rounded-[2rem] border border-sky-100 bg-white p-7 shadow-xl shadow-sky-100/60">
-            <div className="rounded-[1.5rem] bg-gradient-to-br from-sky-50 to-white p-6">
-              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-blue-600">Quick Info</p>
-              <div className="mt-6 space-y-4 text-sm text-slate-700">
-                <div className="rounded-2xl border border-white bg-white p-4 shadow-sm">
-                  <p className="text-slate-500">{t.phoneLabel}</p>
-                  <p className="mt-1 text-lg font-semibold text-slate-900">469-432-3839</p>
-                </div>
-                <div className="rounded-2xl border border-white bg-white p-4 shadow-sm">
-                  <p className="text-slate-500">{t.addressLabel}</p>
-                  <p className="mt-1 font-semibold text-slate-900">222 Canterbury St, Euless, TX 76039</p>
-                </div>
-                <div className="rounded-2xl border border-white bg-white p-4 shadow-sm">
-                  <p className="text-slate-500">{t.emailLabel}</p>
-                  <p className="mt-1 break-all font-semibold text-slate-900">hoonybest1dc@gmail.com</p>
-                </div>
-                <div className="rounded-2xl border border-white bg-white p-4 shadow-sm">
-                  <p className="text-slate-500">License</p>
-                  <p className="mt-1 font-semibold text-slate-900">TACLB106409R</p>
-                </div>
-              </div>
-            </div>
+          <div className="relative flex items-end justify-center lg:justify-end">
+            <img
+              src={heroHvac}
+              alt="HVAC and refrigeration equipment"
+              className="w-full max-w-[850px] object-contain drop-shadow-[0_20px_50px_rgba(255,255,255,0.18)]"
+            />
           </div>
 
           <div className="mt-4 flex gap-3 md:hidden">
             <button
               onClick={() => setLanguage("ko")}
-              className={`rounded-full px-4 py-2 text-sm ${language === "ko" ? "bg-blue-600 text-white" : "border border-sky-200 bg-white text-slate-600"}`}
+              className={`rounded-full px-4 py-2 text-sm ${
+                language === "ko"
+                  ? "bg-blue-600 text-white"
+                  : "border border-sky-200 bg-white text-slate-600"
+              }`}
             >
               한국어
             </button>
             <button
               onClick={() => setLanguage("en")}
-              className={`rounded-full px-4 py-2 text-sm ${language === "en" ? "bg-blue-600 text-white" : "border border-sky-200 bg-white text-slate-600"}`}
+              className={`rounded-full px-4 py-2 text-sm ${
+                language === "en"
+                  ? "bg-blue-600 text-white"
+                  : "border border-sky-200 bg-white text-slate-600"
+              }`}
             >
               ENG
             </button>
@@ -239,41 +257,53 @@ export default function App() {
         </div>
       </section>
 
-      <section id="services" className="mx-auto max-w-7xl px-6 py-10 md:py-14">
+      <section id="services" className="mx-auto max-w-7xl px-6 py-12 md:py-16">
         <div className="mb-8">
-          <p className="text-sm font-semibold uppercase tracking-[0.24em] text-blue-600">{t.servicesTitle}</p>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">{t.servicesTitle}</h2>
+          <p className="text-sm font-semibold uppercase tracking-[0.24em] text-[#2e67db]">
+            {t.servicesTitle}
+          </p>
+          <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
+            {t.servicesTitle}
+          </h2>
           <p className="mt-3 text-slate-600">{t.servicesSubtitle}</p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-          {t.services.map((service) => (
-            <div
-              key={service.title}
-              className="rounded-[2rem] border border-sky-100 bg-white p-6 shadow-lg shadow-sky-100/40"
-            >
-              <div className="mb-4 h-12 w-12 rounded-2xl bg-blue-100" />
-              <h3 className="text-xl font-semibold text-slate-900">{service.title}</h3>
-              <p className="mt-3 text-sm leading-7 text-slate-600">{service.desc}</p>
-            </div>
-          ))}
+        <div className="flex justify-center">
+          <img
+            src={icons}
+            alt="HVAC services"
+            className="w-full max-w-[1100px] object-contain"
+          />
         </div>
       </section>
 
       <section className="mx-auto grid max-w-7xl gap-6 px-6 py-10 md:grid-cols-2 md:py-14">
-        <div id="about" className="rounded-[2rem] border border-sky-100 bg-white p-7 shadow-lg shadow-sky-100/40">
-          <p className="text-sm font-semibold uppercase tracking-[0.24em] text-blue-600">{t.aboutTitle}</p>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900">{t.aboutTitle}</h2>
-          <p className="mt-5 leading-8 text-slate-600">{t.aboutBody}</p>
+        <div
+          id="about"
+          className="rounded-[2rem] border border-[#d9e6fb] bg-[#f8fbff] p-7 shadow-lg shadow-blue-100/30"
+        >
+          <p className="text-sm font-semibold uppercase tracking-[0.24em] text-[#2e67db]">
+            {t.abouttitlesm}
+          </p>
+          <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900">
+            {t.aboutTitle}
+          </h2>
+          <p className="mt-5 text-[19px] leading-7 text-slate-600 whitespace-pre-line">
+            {t.aboutBody}
+          </p>
           <div className="mt-6 rounded-2xl border border-dashed border-sky-200 bg-sky-50 p-4 text-sm text-slate-600">
             {t.aboutPlaceholder}
           </div>
         </div>
 
-        <div id="license" className="rounded-[2rem] border border-sky-100 bg-white p-7 shadow-lg shadow-sky-100/40">
-          <p className="text-sm font-semibold uppercase tracking-[0.24em] text-blue-600">{t.licenseTitle}</p>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900">{t.licenseTitle}</h2>
-          <ul className="mt-5 space-y-3 text-slate-600">
+        <div
+          id="license"
+          className="rounded-[2rem] border border-[#d9e6fb] bg-[#f8fbff] p-7 shadow-lg shadow-blue-100/30"
+        >
+          <p className="text-sm font-semibold uppercase tracking-[0.24em] text-[#2e67db]">
+            {t.licenseTitle}
+          </p>
+          <ul className="mt-5 space-y-3 text-[20px] text-slate-600">
             {t.licenseItems.map((item) => (
               <li key={item} className="flex gap-3 rounded-2xl bg-sky-50 p-4">
                 <span className="mt-1 h-2.5 w-2.5 rounded-full bg-blue-500" />
@@ -285,40 +315,56 @@ export default function App() {
       </section>
 
       <section className="mx-auto max-w-7xl px-6 py-10 md:py-14">
-        <div className="rounded-[2rem] border border-sky-100 bg-gradient-to-r from-blue-600 to-sky-500 p-8 text-white shadow-2xl shadow-blue-200/50">
-          <p className="text-sm font-semibold uppercase tracking-[0.24em] text-blue-100">{t.serviceAreaTitle}</p>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight">{t.serviceAreaTitle}</h2>
-          <p className="mt-4 max-w-3xl text-blue-50">{t.serviceAreaBody}</p>
+        <div className="rounded-[2rem] border border-[#d9e6fb] bg-gradient-to-r from-blue-600 to-sky-500 p-8 text-white shadow-2xl shadow-blue-200/50">
+          <p className="text-sm font-semibold uppercase tracking-[0.24em] text-blue-100">
+            {t.serviceAreaTitle}
+          </p>
+          <p className="mt-4 max-w-3xl text-[25px] text-blue-50">{t.serviceAreaBody}</p>
         </div>
       </section>
 
       <section id="contact" className="mx-auto max-w-7xl px-6 py-10 md:py-14">
         <div className="grid gap-6 lg:grid-cols-[1fr_0.9fr]">
-          <div className="rounded-[2rem] border border-sky-100 bg-white p-7 shadow-lg shadow-sky-100/40">
-            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-blue-600">{t.contactTitle}</p>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900">{t.contactTitle}</h2>
-            <p className="mt-3 text-slate-600">{t.contactSubtitle}</p>
+          <div className="rounded-[2rem] border border-[#d9e6fb] bg-[#f8fbff] p-7 shadow-lg shadow-blue-100/30">
+            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-[#2e67db]">
+              {t.contactTitle}
+            </p>
+            <p className="mt-3 text-[17px] text-slate-600">{t.contactSubtitle}</p>
 
             <div className="mt-6 grid gap-4 md:grid-cols-2">
-              <a href="tel:4694323839" className="rounded-2xl bg-sky-50 p-5 transition hover:bg-sky-100">
+              <a
+                href="tel:4694323839"
+                className="rounded-2xl bg-sky-50 p-5 transition hover:bg-sky-100"
+              >
                 <p className="text-sm text-slate-500">{t.phoneLabel}</p>
                 <p className="mt-1 text-lg font-semibold text-slate-900">469-432-3839</p>
               </a>
-              <a href="mailto:hoonybest1dc@gmail.com" className="rounded-2xl bg-sky-50 p-5 transition hover:bg-sky-100">
+              <a
+                href="mailto:hoonybest1ac@gmail.com"
+                className="rounded-2xl bg-sky-50 p-5 transition hover:bg-sky-100"
+              >
                 <p className="text-sm text-slate-500">{t.emailLabel}</p>
-                <p className="mt-1 break-all text-lg font-semibold text-slate-900">hoonybest1dc@gmail.com</p>
+                <p className="mt-1 break-all text-lg font-semibold text-slate-900">
+                  hoonybest1ac@gmail.com
+                </p>
               </a>
             </div>
 
             <div className="mt-4 rounded-2xl bg-sky-50 p-5">
               <p className="text-sm text-slate-500">{t.addressLabel}</p>
-              <p className="mt-1 text-lg font-semibold text-slate-900">222 Canterbury St, Euless, TX 76039</p>
+              <p className="mt-1 text-lg font-semibold text-slate-900">
+                222 Canterbury St, Euless, TX 76039
+              </p>
             </div>
           </div>
 
           <div className="rounded-[2rem] border border-dashed border-sky-200 bg-white/70 p-7 shadow-lg shadow-sky-100/30">
-            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-blue-600">Logo / Photos</p>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900">Placeholder Area</h2>
+            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-[#2e67db]">
+              Logo / Photos
+            </p>
+            <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900">
+              Placeholder Area
+            </h2>
             <p className="mt-4 leading-8 text-slate-600">
               Add the company logo, work photos, service truck photo, or brand badges here later.
             </p>
@@ -329,7 +375,7 @@ export default function App() {
         </div>
       </section>
 
-      <footer className="mt-10 border-t border-sky-100 bg-white/90">
+      <footer className="mt-10 border-t border-[#d9e6fb] bg-white/90">
         <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-6 text-sm text-slate-500 md:flex-row md:items-center md:justify-between">
           <p>{t.footer}</p>
           <p>License No. TACLB106409R</p>
