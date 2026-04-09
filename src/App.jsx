@@ -2,6 +2,10 @@ import { useMemo, useState } from "react";
 import logo from "./assets/Best 1 Air Conditioning logo.png";
 import heroHvac from "./assets/hero-hvac.png";
 import icons from "./assets/Cooling and heating services interface.png";
+import ac from "./assets/ac.png";
+import fridge from "./assets/fridge.png";
+import walkin from "./assets/walkin.png";
+import kitchen from "./assets/kitchen.png";
 
 export default function App() {
   const [language, setLanguage] = useState("ko");
@@ -28,7 +32,6 @@ export default function App() {
           "주정부 면허 보유 및 책임보험 가입",
         ],
         servicesTitle: "서비스 항목",
-        servicesSubtitle: "현재 안내용 초안입니다. 세부 내용은 추후 업데이트 가능합니다.",
         services: [
           {
             title: "에어컨 / 히터",
@@ -89,7 +92,6 @@ export default function App() {
           "Licensed and insured",
         ],
         servicesTitle: "Services",
-        servicesSubtitle: "This is a draft version. More details can be added later.",
         services: [
           {
             title: "A/C & Heating",
@@ -135,6 +137,36 @@ export default function App() {
   );
 
   const t = content[language];
+
+  const ServiceCard = ({ image, title, description }) => {
+    return (
+      <div className="flex flex-col items-center text-center">
+        
+        {/* Title */}
+        <div className="bg-gradient-to-r from-blue-500 to-blue-400 
+                        text-white font-bold text-lg 
+                        px-6 py-2 rounded-full mb-4 shadow-md">
+          {title}
+        </div>
+
+        {/* Icon */}
+        <img
+          src={image}
+          alt={title}
+          className="w-[220px] object-contain mb-4"
+        />
+
+        {/* Description */}
+        <div className="bg-white/70 backdrop-blur-md 
+                        rounded-2xl px-4 py-3 
+                        text-sm text-gray-700 shadow-md">
+          {description}
+        </div>
+      </div>
+    );
+  };
+  
+  const serviceImages = [ac, fridge, walkin, kitchen];
 
   return (
     <div className="min-h-screen bg-[#f3f7ff] text-slate-900">
@@ -216,7 +248,7 @@ export default function App() {
               {t.trustItems.map((item) => (
                 <div
                   key={item}
-                  className="rounded-2xl bg-[#dbe6f7] px-5 py-5 text-sm font-medium text-[#42526b] shadow-sm"
+                  className="rounded-2xl bg-[#dbe6f7] px-4 py-3 text-[14px] font-medium text-[#42526b] shadow-sm flex items-center justify-center text-center"
                 >
                   {item}
                 </div>
@@ -259,21 +291,20 @@ export default function App() {
 
       <section id="services" className="mx-auto max-w-7xl px-6 py-12 md:py-16">
         <div className="mb-8">
-          <p className="text-sm font-semibold uppercase tracking-[0.24em] text-[#2e67db]">
+          <p className="text-[25px] font-semibold uppercase tracking-[0.15em] text-[#2e67db]">
             {t.servicesTitle}
           </p>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
-            {t.servicesTitle}
-          </h2>
-          <p className="mt-3 text-slate-600">{t.servicesSubtitle}</p>
         </div>
 
-        <div className="flex justify-center">
-          <img
-            src={icons}
-            alt="HVAC services"
-            className="w-full max-w-[1100px] object-contain"
-          />
+        <div className="grid gap-10 md:grid-cols-2 xl:grid-cols-4 justify-items-center">
+          {t.services.map((service, index) => (
+            <ServiceCard
+              key={index}
+              image={serviceImages[index]}
+              title={service.title}
+              description={service.desc}
+            />
+          ))}
         </div>
       </section>
 
